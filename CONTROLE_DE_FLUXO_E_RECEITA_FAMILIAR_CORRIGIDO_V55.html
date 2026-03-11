@@ -2628,9 +2628,11 @@ window.addEventListener("load", function(){
   })();
 
 function salvarSistema(){
-  try{
-    if (window.getCur && typeof window.saveMonth === "function"){
-      const atual = window.getCur();
+ try{
+  if (window.__getCur && typeof window.saveMonth === "function"){
+
+    
+   const atual = window.__getCur();
       if (atual){
         window.saveMonth(atual);
         alert("Dados salvos com sucesso!");
