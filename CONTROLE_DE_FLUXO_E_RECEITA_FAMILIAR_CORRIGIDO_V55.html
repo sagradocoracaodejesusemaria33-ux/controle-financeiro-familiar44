@@ -2627,7 +2627,26 @@ window.addEventListener("load", function(){
   })();
 
 function salvarSistema(){
-  alert("Dados salvos com sucesso!");
+
+   try{
+
+      if(window._getCur){
+         const atual = window._getCur();
+
+         if(atual && typeof window.saveMonth === "function"){
+            window.saveMonth(atual);
+            alert("Dados salvos com sucesso!");
+            return;
+         }
+      }
+
+      alert("Não foi possível salvar.");
+
+   }catch(e){
+      console.log(e);
+      alert("Erro ao salvar.");
+   }
+
 }
 </script>
 <!-- ==== FIM PATCH V3 ==== -->
